@@ -11,6 +11,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="card shadow">
+            <button type="button" class="btn btn-primary float-left" data-toggle="modal" data-target="#modalTambah">
+                <i class="fa fa-plus"></i> Tambah User
+            </button>
             <div class="card-body">
                 <table id="userTable" class="table table-bordered table-striped">
                     <thead>
@@ -48,6 +51,7 @@
 
 @section('modal')
     @include('admin.user.edit')
+    @include('admin.user.tambah')
 @endsection
 
 @push('scripts')
@@ -63,7 +67,7 @@
         $(function() {
             $("#userTable").DataTable({
                 "responsive": true,
-                "lengthChange": false,
+                // "lengthChange": false,
                 "autoWidth": false,
             })
         })

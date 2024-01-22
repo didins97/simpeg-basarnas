@@ -17,6 +17,23 @@ class UserController extends Controller
         return response()->json(\DB::table('users')->where('id', $id)->first());
     }
 
+    public function store(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required|confirmed',
+        ]);
+
+        $dataUser = $request->except('password', 'password_confirmation', '_token');
+        $dataUser['password'] = Hash::make($request->password);
+        $dataUser['id_card'] = \Str::random(10);
+
+        \DB::table('users')->insert($dataUser);
+
+        toast('Data user berhasil ditambahkan', 'success');
+        return redirect()->route('admin.user.index')->with('success', 'Data user berhasil ditambahkan');
+    }
+
     public function update(Request $request, $id) {
         $request->validate([
             'name' => 'required',
