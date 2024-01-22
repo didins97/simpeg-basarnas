@@ -202,7 +202,7 @@
                                 <div class="row">
                                     <div class="col-md-4"> Tahun Kelulusan
                                     </div>
-                                    <div class="col-md-8"> : {{ $pegawai->tahun_lulus }}
+                                    <div class="col-md-8"> : {{ \Carbon\Carbon::parse($pegawai->thn_lulus)->format('Y') }}
                                     </div>
                                 </div>
                                 <hr>

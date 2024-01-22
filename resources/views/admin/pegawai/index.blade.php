@@ -93,29 +93,34 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": [{
+                "buttons": [
+                    {
                         extend: 'excel',
-                        text: 'Excel',
+                        text: '<i class="fas fa-file-excel"></i> Excel',
+                        className: 'btn btn-excel',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4]
                         }
                     },
                     {
                         extend: 'pdf',
-                        text: 'PDF',
+                        text: '<i class="fas fa-file-pdf"></i> PDF',
+                        className: 'btn btn-pdf',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4]
-                        }
+                            columns: [0, 1, 2, 3, 4],
+                        },
                     },
                     {
                         extend: 'print',
-                        text: 'Print',
+                        text: '<i class="fas fa-print"></i> Print',
+                        className: 'btn btn-print',
                         exportOptions: {
                             columns: [0, 1, 2, 3, 4]
                         }
                     },
                     {
-                        text: 'Tambah',
+                        text: '<i class="fas fa-plus"></i> Tambah',
+                        className: 'btn btn-tambah',
                         action: function(e, dt, node, config) {
                             $('#myModal').modal('show');
                         }
