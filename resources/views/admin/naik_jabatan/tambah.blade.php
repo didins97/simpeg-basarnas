@@ -14,11 +14,11 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="jabatan">Jabatan Lama</label>
+                <label for="jabatan">Jabatan / Golongan Lama</label>
                 <input type="text" class="form-control" id="jabatanLama" placeholder="Masukkan Jabatan" name="jabatan_sebelum" required>
             </div>
             <div class="form-group">
-                <label for="jabatan">Jabatan Baru</label>
+                <label for="jabatan">Jabatan / Golongan Baru</label>
                 <input type="text" class="form-control" id="jabatanBaru" placeholder="Masukkan Jabatan" name="jabatan_baru" required>
             </div>
             <div class="form-group">

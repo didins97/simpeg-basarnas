@@ -55,7 +55,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="agama">Agama</label>
-                                    <input type="text" class="form-control" id="agamaEdit" placeholder="Masukkan Agama" name="agama">
+                                    <select class="form-control" id="agamaEdit" name="agama">
+                                        <option selected disabled>Pilih Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
+                                        <option value="Konghucu">Konghucu</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="statusPernikahan">Status Pernikahan</label>
@@ -116,10 +124,12 @@
                                     <input type="date" class="form-control" id="tanggalMulaiBekerjaEdit" name="tanggal_masuk" required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="statusPegawai">Status Pegawai</label>
-                                    <select id="statusPegawaiEdit" class="form-control" name="status_pegawai" required>
-                                        <option value="1">Aktif</option>
-                                        <option value="0">Tidak Aktif</option>
+                                    <label for="statusPegawai">Status Pegawai<small style="color: red;">*</small></label>
+                                    <select id="statusPegawaiEdit" class="form-control" name="jenis_pegawai" required>
+                                        <option selected disabled>Pilih Status Pegawai</option>
+                                        <option value="Aktif">Aktif</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                        <option value="Magang">Magang</option>
                                     </select>
                                 </div>
                             </div>
@@ -131,7 +141,8 @@
                                     <select id="pendidikanTerakhirEdit" class="form-control" name="pend_terakhir" required>
                                         <option selected disabled>Pilih Pendidikan Terakhir</option>
                                         <option value="SMA">SMA/SMK</option>
-                                        <option value="Diploma">Diploma</option>
+                                        <option value="Diploma 3">Diploma 3</option>
+                                        <option value="Diploma 4">Diploma 4</option>
                                         <option value="S1">Sarjana (S1)</option>
                                         <option value="S2">Magister (S2)</option>
                                         <option value="S3">Doktor (S3)</option>

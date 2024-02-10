@@ -62,8 +62,15 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="agama">Agama<small style="color: red;">*</small></label>
-                                    <input type="text" class="form-control" id="agama"
-                                        placeholder="Masukkan Agama" name="agama">
+                                    <select class="form-control" id="agama" name="agama">
+                                        <option value="">Pilih Agama</option>
+                                        <option value="Islam">Islam</option>
+                                        <option value="Kristen">Kristen</option>
+                                        <option value="Katolik">Katolik</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Buddha">Buddha</option>
+                                        <option value="Konghucu">Konghucu</option>
+                                    </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="statusPernikahan">Status Pernikahan<small style="color: red;">*</small></label>
@@ -130,9 +137,10 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="statusPegawai">Status Pegawai<small style="color: red;">*</small></label>
-                                    <select id="statusPegawai" class="form-control" name="status_pegawai" required>
-                                        <option value="1">Aktif</option>
-                                        <option value="0">Tidak Aktif</option>
+                                    <select id="statusPegawai" class="form-control" name="jenis_pegawai" required>
+                                        <option value="Aktif">Aktif</option>
+                                        <option value="Kontrak">Kontrak</option>
+                                        <option value="Magang">Magang</option>
                                     </select>
                                 </div>
                             </div>
@@ -144,7 +152,8 @@
                                     <label for="pendidikanTerakhir">Pendidikan Terakhir<small style="color: red;">*</small></label>
                                     <select id="pendidikanTerakhir" class="form-control" name="pend_terakhir" required>
                                         <option value="SMA">SMA/SMK</option>
-                                        <option value="Diploma">Diploma</option>
+                                        <option value="Diploma 3">Diploma 3</option>
+                                        <option value="Diploma 4">Diploma 4</option>
                                         <option value="S1">Sarjana (S1)</option>
                                         <option value="S2">Magister (S2)</option>
                                         <option value="S3">Doktor (S3)</option>

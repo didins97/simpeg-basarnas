@@ -21,8 +21,8 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
-                                <th>Unit Lama</th>
-                                <th>Unit Baru</th>
+                                <th>Kantor & Unit Lama</th>
+                                <th>Kantor & Unit Baru</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -31,10 +31,10 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->pegawai->nama }}</td>
-                                    <td>{{ $item->unit_kerja_sebelum }}</td>
-                                    <td>{{ $item->unit_kerja_baru}}</td>
+                                    <td>{{ $item->unit_kerja_sebelum }} ({{$item->kantor_lama}})</td>
+                                    <td>{{ $item->unit_kerja_baru}} ({{$item->kantor_baru}})</td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="{{ route('admin.mutasi.show.file', $item->id) }}" target="_blank">
+                                        {{-- <a class="btn btn-primary btn-sm" href="{{ route('admin.mutasi.show.file', $item->id) }}" target="_blank">
                                             <i class="fas fa-eye">
                                             </i>
                                         </a>
@@ -43,7 +43,15 @@
                                         </a>
                                         <a class="btn btn-danger btn-sm btn-delete" href="#" data-id="{{$item->id}}">
                                             <i class="fas fa-trash"></i>
+                                        </a> --}}
+                                        <a class="dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"><i class="fas fa-ellipsis-h"></i>
                                         </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{{ route('admin.mutasi.show.file', $item->id) }}">Lihat SK</a></li>
+                                            <li><a class="dropdown-item btn-edit" href="javascript:void(0)" data-id="{{$item->id}}">Edit</a></li>
+                                            <li><a class="dropdown-item btn-delete" href="javascript:void(0)" data-id="{{ $item->id }}">Hapus</a></li>
+                                        </ul>
                                     </td>
                                 </tr>
                             @endforeach
@@ -66,15 +74,49 @@
     <script src="{{ asset('assets') }}/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="{{ asset('assets') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
     <script src="{{ asset('assets') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets') }}/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="{{ asset('assets') }}/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="{{ asset('assets') }}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="{{ asset('assets') }}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="{{ asset('assets') }}/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="{{ asset('assets') }}/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="{{ asset('assets') }}/plugins/jszip/jszip.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // datatables
         $(function () {
             $("#mutasiTable").DataTable({
+                "dom": 'Bfrtip',
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
+                "buttons": [
+                    {
+                        extend: 'print',
+                        text: '<i class="fas fa-print"></i> Print',
+                        className: 'btn btn-print',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3]
+                        }
+                    },
+                    {
+                        extend: 'excel',
+                        text: '<i class="fas fa-file-excel"></i> Excel',
+                        className: 'btn btn-excel',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3]
+                        }
+                    },
+                    {
+                        extend: 'pdf',
+                        text: '<i class="fas fa-file-pdf"></i> PDF',
+                        className: 'btn btn-pdf',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3],
+                        },
+                    },
+                ]
             })
         })
 
@@ -91,6 +133,8 @@
                     $('#tglMutasi').val(response.tgl_mutasi);
                     $('#unitKerjaSebelum').val(response.unit_kerja_sebelum);
                     $('#unitKerjaBaru').val(response.unit_kerja_baru);
+                    $('#kantorLama').val(response.kantor_lama);
+                    $('#kantorBaru').val(response.kantor_baru);
                     $('#mutasiForm').attr('action', `/mutasi/${response.id}`);
                     $('#mutasiForm').append('<input type="hidden" name="_method" value="PUT">');
                 }

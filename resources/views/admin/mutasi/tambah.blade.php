@@ -14,6 +14,14 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="kantorLama">Kantor Lama</label>
+                <input type="text" class="form-control" id="kantorLama" placeholder="Masukkan Kantor Lama" name="kantor_lama" required>
+            </div>
+            <div class="form-group">
+                <label for="kantorBaru">Kantor Baru</label>
+                <input type="text" class="form-control" id="kantorBaru" placeholder="Masukkan Kantor Lama" name="kantor_baru" required>
+            </div>
+            <div class="form-group">
                 <label for="unitKerjaLama">Unit Kerja / Departemen Lama</label>
                 <input type="text" class="form-control" id="unitKerjaSebelum" placeholder="Masukkan Unit Kerja / Departemen" name="unit_kerja_sebelum" required>
             </div>

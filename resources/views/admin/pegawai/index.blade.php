@@ -35,11 +35,23 @@
                                 <td>{{ $item->jns_kelamin }}</td>
                                 <td>{{ $item->jabatan }}</td>
                                 <td>
-                                    @if ($item->status_pegawai == 1)
+                                    {{-- @if ($item->status_pegawai == 1)
                                         <span class="badge badge-success">Aktif</span>
                                     @else
                                         <span class="badge badge-danger">Tidak Aktif</span>
-                                    @endif
+                                    @endif --}}
+                                    @switch($item->jenis_pegawai)
+                                        @case('Aktif')
+                                            <span class="badge badge-success">Aktif</span>
+                                            @break
+                                        @case('Kontrak')
+                                            <span class="badge badge-info">Kontrak</span>
+                                            @break
+                                        @case('Magang')
+                                            <span class="badge badge-warning">Magang</span>
+                                            @break
+                                        @default
+                                    @endswitch
                                 </td>
                                 {{-- <td>{{\Carbon\Carbon::parse($item->tanggal_masuk)->format('Y')}}</td> --}}
                                 <td class="project-actions text-right">
@@ -142,7 +154,6 @@
                     $('#tempatLahirEdit').val(response.t_lahir);
                     $('#tanggalLahirEdit').val(response.tgl_lahir);
                     $('#agamaEdit').val(response.agama);
-                    $('#agamaEdit').val(response.agama);
                     $('#statusPernikahanEdit').val(response.status_maritai);
                     $('#alamatRumahEdit').val(response.alamat);
                     $('#alamatEmailEdit').val(response.email);
@@ -154,6 +165,7 @@
                     $('#namaInstitusiEdit').val(response.nama_institut);
                     $('#jurusanStudiEdit').val(response.jurusan);
                     $('#tahunLulusEdit').val(response.tahun_lulus);
+                    $('#statusPegawaiEdit').val(response.jenis_pegawai);
                     $('#pegawaiFormEdit').attr('action', `/pegawai/${response.id}`);
                 }
             });

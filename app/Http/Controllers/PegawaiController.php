@@ -12,7 +12,7 @@ use App\Models\Pegawai;
 class PegawaiController extends Controller
 {
     public function index() {
-        $pegawai = Pegawai::orderBy('created_at')->get();
+        $pegawai = Pegawai::orderBy('created_at', 'desc')->get();
         return view('admin.pegawai.index', compact('pegawai'));
     }
 
