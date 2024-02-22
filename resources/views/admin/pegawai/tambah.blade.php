@@ -31,11 +31,21 @@
                                     <label for="namaLengkap">Nama Lengkap<small style="color: red;">*</small></label>
                                     <input type="text" class="form-control" id="namaLengkap"
                                         placeholder="Masukkan Nama Lengkap" name="nama" required>
+                                    @if ($errors->has('nama'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('nama') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="nip">NIP (Nomor Induk Pegawai) atau ID Pegawai<small style="color: red;">*</small></label>
                                     <input type="text" class="form-control" id="nip"
                                         placeholder="Masukkan NIP atau ID Pegawai" name="nip">
+                                    @if ($errors->has('nip'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('nip') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-row">
@@ -46,6 +56,11 @@
                                         <option value="Laki-laki">Laki-laki</option>
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
+                                    @if ($errors->has('jns_kelamin'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('jns_kelamin') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="tempatTanggalLahir">Tempat dan Tanggal Lahir<small style="color: red;">*</small></label>
@@ -57,6 +72,11 @@
                                                 name="tgl_lahir" required>
                                         </div>
                                     </div>
+                                    @if ($errors->has('t_lahir'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('t_lahir') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-row">
@@ -71,6 +91,11 @@
                                         <option value="Buddha">Buddha</option>
                                         <option value="Konghucu">Konghucu</option>
                                     </select>
+                                    @if ($errors->has('agama'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('agama') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="statusPernikahan">Status Pernikahan<small style="color: red;">*</small></label>
@@ -81,19 +106,29 @@
                                         <option value="menikah">Menikah</option>
                                         <option value="janda_duda">Janda/Duda</option>
                                     </select>
+                                    @if ($errors->has('status_maritai'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('status_maritai') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">Foto</label>
                                 <div class="input-group">
                                   <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="foto">
+                                    <input type="file" class="custom-file-input" id="exampleInputFile" name="foto" required>
                                     <label class="custom-file-label" for="exampleInputFile">Pilih file</label>
                                   </div>
                                   <div class="input-group-append">
                                     <span class="input-group-text">Upload</span>
                                   </div>
                                 </div>
+                                @if ($errors->has('foto'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('foto') }}</strong>
+                                    </span>
+                                @endif
                               </div>
                         </div>
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel"
@@ -103,16 +138,31 @@
                                     <label for="alamatEmail">Alamat Email<small style="color: red;">*</small></label>
                                     <input type="email" class="form-control" id="alamatEmail"
                                         placeholder="Masukkan Alamat Email" name="email" required>
+                                    @if ($errors->has('email'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="nomorTelepon">Nomor WA<small style="color: red;">*</small></label>
                                     <input type="tel" class="form-control" id="nomorTelepon"
                                         placeholder="Masukkan Nomor Telepon" name="nohp" required>
+                                    @if ($errors->has('nohp'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('nohp') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Alamat <small style="color: red;">*</small></label>
                                 <textarea class="form-control" rows="3" placeholder="Masukan Alamat" name="alamat"></textarea>
+                                @if ($errors->has('alamat'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
                               </div>
                         </div>
                         <div class="tab-pane fade" id="nav-contact" role="tabpanel"
@@ -122,11 +172,21 @@
                                     <label for="jabatan">Jabatan<small style="color: red;">*</small></label>
                                     <input type="text" class="form-control" id="jabatan"
                                         placeholder="Masukkan Jabatan" name="jabatan" required>
+                                    @if ($errors->has('jabatan'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('jabatan') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="departemen">Departemen atau Unit Kerja<small style="color: red;">*</small></label>
                                     <input type="text" class="form-control" id="departemen"
                                         placeholder="Masukkan Departemen atau Unit Kerja" name="unit_kerja" required>
+                                    @if ($errors->has('unit_kerja'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('unit_kerja') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-row">
@@ -134,14 +194,24 @@
                                     <label for="tanggalMulaiBekerja">Tanggal Mulai Bekerja<small style="color: red;">*</small></label>
                                     <input type="date" class="form-control" id="tanggalMulaiBekerja"
                                         name="tanggal_masuk" required>
+                                    @if ($errors->has('tanggal_masuk'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('tanggal_masuk') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="statusPegawai">Status Pegawai<small style="color: red;">*</small></label>
                                     <select id="statusPegawai" class="form-control" name="jenis_pegawai" required>
-                                        <option value="Aktif">Aktif</option>
+                                        <option value="PNS">PNS</option>
                                         <option value="Kontrak">Kontrak</option>
-                                        <option value="Magang">Magang</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
+                                    @if ($errors->has('jenis_pegawai'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('jenis_pegawai') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -158,12 +228,22 @@
                                         <option value="S2">Magister (S2)</option>
                                         <option value="S3">Doktor (S3)</option>
                                     </select>
+                                    @if ($errors->has('pend_terakhir'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('pend_terakhir') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="namaInstitusi">Nama Institusi Pendidikan<small style="color: red;">*</small></label>
                                     <input type="text" class="form-control" id="namaInstitusi"
                                         placeholder="Masukkan Nama Institusi Pendidikan" name="nama_institut"
                                         required>
+                                    @if ($errors->has('nama_institut'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('nama_institut') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-row">
@@ -171,11 +251,21 @@
                                     <label for="jurusanStudi">Jurusan Studi<small style="color: red;">*</small></label>
                                     <input type="text" class="form-control" id="jurusanStudi"
                                         placeholder="Masukkan Jurusan Studi" name="jurusan" required>
+                                    @if ($errors->has('jurusan'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('jurusan') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="tahunLulus">Tahun Lulus<small style="color: red;">*</small></label>
                                     <input type="text" class="form-control" id="tahunLulus"
                                         placeholder="Masukkan Tahun Lulus" name="tahun_lulus" required>
+                                    @if ($errors->has('tahun_lulus'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('tahun_lulus') }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div id="dynamicForm">
@@ -186,11 +276,21 @@
                                             <option value="sertifikat">Sertifikat</option>
                                             <option value="ijazah">Ijazah</option>
                                         </select>
+                                        @if ($errors->has('jenis_file'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('jenis_file') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                     <div class="form-group col">
                                         <label for="file">File</label>
                                         <input type="file" class="form-control-file" id="file" name="file[]"
                                             required>
+                                        @if ($errors->has('file'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('file') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                     <div class="form-group col">
                                         <label for="file">Judul File</label>
@@ -200,6 +300,11 @@
                                                 <button type="button" class="btn btn-success btn-flat btn-multiple"><i class="fas fa-plus"></i></button>
                                             </span>
                                         </div>
+                                        @if ($errors->has('judul_file'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('judul_file') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -127,9 +127,9 @@
                                     <label for="statusPegawai">Status Pegawai<small style="color: red;">*</small></label>
                                     <select id="statusPegawaiEdit" class="form-control" name="jenis_pegawai" required>
                                         <option selected disabled>Pilih Status Pegawai</option>
-                                        <option value="Aktif">Aktif</option>
+                                        <option value="PNS">PNS</option>
                                         <option value="Kontrak">Kontrak</option>
-                                        <option value="Magang">Magang</option>
+                                        <option value="Lainnya">Lainnya</option>
                                     </select>
                                 </div>
                             </div>

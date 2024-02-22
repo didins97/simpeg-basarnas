@@ -41,14 +41,14 @@
                                         <span class="badge badge-danger">Tidak Aktif</span>
                                     @endif --}}
                                     @switch($item->jenis_pegawai)
-                                        @case('Aktif')
-                                            <span class="badge badge-success">Aktif</span>
+                                        @case('PNS')
+                                            <span class="badge badge-success">PNS</span>
                                             @break
                                         @case('Kontrak')
                                             <span class="badge badge-info">Kontrak</span>
                                             @break
-                                        @case('Magang')
-                                            <span class="badge badge-warning">Magang</span>
+                                        @case('Lainnya')
+                                            <span class="badge badge-warning">Lainnya</span>
                                             @break
                                         @default
                                     @endswitch

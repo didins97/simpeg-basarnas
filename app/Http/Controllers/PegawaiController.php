@@ -30,6 +30,7 @@ class PegawaiController extends Controller
             'jns_kelamin' => 'required',
             'agama' => 'string',
             'status_maritai' => 'required',
+            'foto' => 'required',
         ]);
 
         \DB::beginTransaction();

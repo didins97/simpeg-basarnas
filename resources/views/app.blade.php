@@ -45,7 +45,7 @@
                             class="fas fa-bars"></i></a>
                 </li>
             </ul>
-            <h3 class="text-secondary ml-3">SISTEM ARSIP DOKUMEN PEGAWAI BASARNAS</h3>
+            <h5 class="text-secondary ml-3">SISTEM PENGARSIPAN DOKUMEN MENGGUNAKAN METODE MIXTURE MODELING</h5>
             <h6><sup class="text-primary">V.1</sup></h6>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -64,7 +64,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="{{ asset('assets') }}/dist/img/logo.png" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">BASARNAS SIMPEG</span>
+                <span class="brand-text font-weight-light">ARSIP DOKUMEN</span>
             </a>
 
             <!-- Sidebar -->
