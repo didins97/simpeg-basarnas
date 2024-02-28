@@ -214,6 +214,23 @@
                                     @endif
                                 </div>
                             </div>
+                            <div class="form-group" id="skPNSUpload">
+                                <label for="sk">SK PNS</label>
+                                <div class="input-group">
+                                  <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="sk" name="sk_pns" required>
+                                    <label class="custom-file-label" for="sk">Pilih file</label>
+                                  </div>
+                                  <div class="input-group-append">
+                                    <span class="input-group-text">Upload</span>
+                                  </div>
+                                </div>
+                                @if ($errors->has('sk_pns'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('sk_pns') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                         <div class="tab-pane fadde" id="nav-pendidikan" role="tabpanel"
                             aria-labelledby="nav-pendidikan-tab">

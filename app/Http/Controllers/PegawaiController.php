@@ -39,6 +39,7 @@ class PegawaiController extends Controller
             // create pegawai
             $pegawaiData = $request->except('file', 'jenis_file', 'judul_file');
             $pegawaiData['foto'] = $request->hasFile('foto') ? upload_file('public/foto', $request->file('foto'), $request->nip) : 'default.jpg';
+            $pegawaiData['sk_pns'] = $request->hasFile('sk_pns') ? upload_file('public/sk_pns', $request->file('sk_pns'), $request->nip) : null;
             $pegawai = Pegawai::create($pegawaiData);
 
             // upload dokumen
@@ -91,6 +92,10 @@ class PegawaiController extends Controller
 
         if ($request->has('foto')) {
             $pegawaiData['foto'] = upload_file('public/foto', $request->file('foto'), $request->nip);
+        }
+
+        if ($request->has('sk_pns')) {
+            $pegawaiData['sk_pns'] = upload_file('public/sk_pns', $request->file('sk_pns'), $request->nip);
         }
 
         $pegawai->update($pegawaiData);

@@ -43,13 +43,16 @@
                                     @switch($item->jenis_pegawai)
                                         @case('PNS')
                                             <span class="badge badge-success">PNS</span>
-                                            @break
+                                        @break
+
                                         @case('Kontrak')
                                             <span class="badge badge-info">Kontrak</span>
-                                            @break
+                                        @break
+
                                         @case('Lainnya')
                                             <span class="badge badge-warning">Lainnya</span>
-                                            @break
+                                        @break
+
                                         @default
                                     @endswitch
                                 </td>
@@ -59,11 +62,12 @@
                                         <i class="fas fa-eye">
                                         </i>
                                     </a>
-                                    <a class="btn btn-info btn-sm btn-edit" href="#" data-id="{{$item->id}}">
+                                    <a class="btn btn-info btn-sm btn-edit" href="#" data-id="{{ $item->id }}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                     </a>
-                                    <a class="btn btn-danger btn-sm btn-delete" href="#" data-id="{{$item->id}}">
+                                    <a class="btn btn-danger btn-sm btn-delete" href="#"
+                                        data-id="{{ $item->id }}">
                                         <i class="fas fa-trash">
                                         </i>
                                     </a>
@@ -105,8 +109,7 @@
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,
-                "buttons": [
-                    {
+                "buttons": [{
                         extend: 'excel',
                         text: '<i class="fas fa-file-excel"></i> Excel',
                         className: 'btn btn-excel',
@@ -141,13 +144,13 @@
             }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
         });
 
-        $('.btn-edit').click(function (e) {
+        $('.btn-edit').click(function(e) {
             var id = $(this).data('id');
             console.log(id);
             $.ajax({
                 type: "GET",
                 url: `/pegawai/${id}/edit`,
-                success: function (response) {
+                success: function(response) {
                     $('#nipEdit').val(response.nip);
                     $('#namaLengkapEdit').val(response.nama);
                     $('#jenisKelaminEdit').val(response.jns_kelamin);
@@ -172,7 +175,7 @@
             $('#editModal').modal('show');
         });
 
-        $('.btn-delete').click(function (e) {
+        $('.btn-delete').click(function(e) {
             e.preventDefault();
             var id = $(this).data('id');
             Swal.fire({
@@ -204,12 +207,12 @@
         })
 
         var form = 1;
-        $('.btn-multiple').click(function (e) {
+        $('.btn-multiple').click(function(e) {
             form++;
             console.log(form);
             var objTo = document.getElementById('dynamicForm');
             var divTest = document.createElement('div');
-            divTest.setAttribute('class', 'form-row upload-file'+form);
+            divTest.setAttribute('class', 'form-row upload-file' + form);
             divTest.innerHTML = `
             <div class="form-group col">
                                     <label for="jurusanStudi">Jenis File</label>
@@ -236,8 +239,17 @@
             objTo.appendChild(divTest);
         });
 
-        $(document).on('click', '.btn-remove', function () {
+        $(document).on('click', '.btn-remove', function() {
             $(this).closest('.form-row').remove();
         })
+
+        $('#statusPegawai').change(function() {
+            var selectedOption = $(this).val();
+            if (selectedOption !== "PNS") {
+                $('#skPNSUpload').hide();
+            } else {
+                $('#skPNSUpload').show();
+            }
+        });
     </script>
 @endpush

@@ -136,7 +136,16 @@
                                     </div>
                                 </div>
                                 <hr>
-                                <!-- card shadow -->
+                                @if ($pegawai->jenis_pegawai == 'PNS')
+                                    <!-- row 4 -->
+                                    <div class="row">
+                                        <div class="col-md-4"> SK PNS
+                                        </div>
+                                        <div class="col-md-4"> : <a href="{{ asset('storage/sk_pns/'.$pegawai->sk_pns) }}" class="btn-link text-secondary" target="_blank"><i class="far fa-fw fa-file-pdf"></i> SK-PNS.{{pathinfo($pegawai->sk_pns, PATHINFO_EXTENSION);}}</a>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                @endif
                             </div>
                         </div>
                     </div>
